@@ -8,6 +8,7 @@ function GridTile(props) {
 
     const handleClick = () => {
         setActive(!isActive)
+        console.log(isActive)
     }
 
     return (
