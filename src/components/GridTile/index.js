@@ -1,15 +1,12 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Constants from '../../constants'
 
 
-function GridTile({ note }) {
-    const [isActive, setActive] = useState(
-        false
-    );
+function GridTile({ isActive, index }) {
+
 
     const handleClick = () => {
-        setActive(!isActive)
-        console.log("on note:", note)
+        console.log(isActive)
     }
 
     return (

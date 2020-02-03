@@ -1,11 +1,14 @@
-import React, { useEffect } from 'react'
-import GridTile from '../GridTile'
+import React, { useEffect, useState } from 'react'
+import GridCol from '../GridCol'
 import Constants from '../../constants'
 import { CustomSynth } from '../Synths'
 import Tone from '../Tone'
+import './style.css'
 
 
 function SynthGrid() {
+
+    const [melody, setMelody] = useState([...Array(Constants.GRID_LENGTH).keys()])
 
     function run() {
         const synth = new CustomSynth();
@@ -25,11 +28,12 @@ function SynthGrid() {
     useEffect(run, []);
 
     return (
-        <div>
-            {Constants.BEATS.map((beat, i) => {
-                return <GridTile
-                    note={beat}
+        <div className='synth-grid'>
+            {melody.map((el, i) => {
+                return <GridCol
                     key={i}
+                    index={i}
+                    setMelody={setMelody}
                 />
             })}
         </div>
