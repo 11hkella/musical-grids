@@ -26,9 +26,9 @@ function SynthGrid() {
 
     return (
         <div>
-            {Constants.NOTES.map((note, i) => {
+            {Constants.BEATS.map((beat, i) => {
                 return <GridTile
-                    note={note}
+                    note={beat}
                     key={i}
                 />
             })}
