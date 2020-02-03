@@ -10,7 +10,6 @@ function GridTile({ isActive, index, selectNote }) {
     }
 
     useEffect(() => {
-        console.log("button effect fired with bool: ", isActive)
         if (isActive) {
             setBackgroundColor("green")
         } else {

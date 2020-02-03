@@ -17,14 +17,11 @@ function GridCol({ position }) {
     const selectNote = index => {
         const currActiveIndex = activeArr.findIndex(el => el === true)
         let nextActiveArr = initalFalseArr
-        console.log("found true at : ", currActiveIndex)
 
         if (currActiveIndex !== index) {
             nextActiveArr[index] = true
         }
-        console.log("the active array now looks like : ", nextActiveArr)
         setActive(nextActiveArr)
-        console.log("\nAcvtive array state: \n", activeArr)
     }
 
 
