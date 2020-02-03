@@ -32,7 +32,7 @@ function SynthGrid() {
             {melody.map((el, i) => {
                 return <GridCol
                     key={i}
-                    index={i}
+                    position={i}
                     setMelody={setMelody}
                 />
             })}

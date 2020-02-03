@@ -1,13 +1,24 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import Constants from '../../constants'
 
 
-function GridTile({ isActive, index }) {
-
+function GridTile({ isActive, index, selectNote }) {
+    const [backgroundColor, setBackgroundColor] = useState("blue")
 
     const handleClick = () => {
-        console.log(isActive)
+        selectNote(index)
     }
+
+    useEffect(() => {
+        console.log("button effect fired with bool: ", isActive)
+        if (isActive) {
+            setBackgroundColor("green")
+        } else {
+            setBackgroundColor("blue")
+        }
+
+    }, [isActive])
+
 
     return (
         <div>
@@ -16,7 +27,7 @@ function GridTile({ isActive, index }) {
                 style={{
                     width: Constants.TILE_SIZE,
                     height: Constants.TILE_SIZE,
-                    backgroundColor: isActive ? "green" : "blue"
+                    backgroundColor
                 }}></button>
         </div>
     )
