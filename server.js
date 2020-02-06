@@ -7,6 +7,7 @@ const { MelodyRouter } = require('./controllers/melody.js')
 
 // register middleware
 app.use(express.urlencoded({ extended: true }))
+app.use(express.json())
 app.use(express.static(`${__dirname}/client/build`))
 
 //add router for application use
