@@ -11,7 +11,7 @@ app.use(express.json())
 app.use(express.static(`${__dirname}/client/build`))
 
 //add router for application use
-app.use('/api', MelodyRouter)
+app.use('/api/melody', MelodyRouter)
 
 //catch all to serve up built react app
 app.get('/*', (req, res) => {

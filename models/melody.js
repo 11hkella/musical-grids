@@ -10,54 +10,25 @@ const MelodyCollection = mongoose.model('Melodies', MelodySchema)
 
 //function to query, create, update, and delete from collection
 function getOneMelody(id) {
-    MelodyCollection.findById(id, (err, res) => {
-        if (!err) {
-            return res
-        } else {
-            throw err
-        }
-    })
+    console.log('model id recieved: ', id)
+    return MelodyCollection.findById(id)
 }
 
 function getAllMelodies() {
-    MelodyCollection.find({}, (err, res) => {
-        if (!err) {
-            return res
-        } else {
-            throw err
-        }
-    })
+    return MelodyCollection.find({})
 }
 
 function createMelody(body) {
-    MelodyCollection.create(body, (err, res) => {
-        if (!err) {
-            return res
-        } else {
-            throw err
-        }
-    })
+    return MelodyCollection.create(body)
 }
 
 function updateMelody(body, id) {
-    MelodyCollection.find(body, { _id: id }, (err, res) => {
-        if (!err) {
-            return res
-        } else {
-            throw err
-        }
-    })
+    return MelodyCollection.find(body, { _id: id })
 }
 
 
 function deleteMelody(id) {
-    MelodyCollection.deleteOne({ _id: id }, (err, res) => {
-        if (!err) {
-            return res
-        } else {
-            throw err
-        }
-    })
+    return MelodyCollection.deleteOne({ _id: id })
 }
 
 
