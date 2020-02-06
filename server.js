@@ -3,7 +3,7 @@ const express = require('express')
 const app = express()
 
 //import routers from controllers
-const { appRouter } = require('./controllers/main.js')
+const { appRouter } = require('./controllers/melody.js')
 
 // register middleware
 app.use(express.urlencoded({ extended: true }))
