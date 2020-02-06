@@ -1,5 +1,5 @@
 // import dependencies
-const express = require('express')
+import express from 'express'
 const app = express()
 
 //import routers from controllers
