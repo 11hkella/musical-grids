@@ -7,4 +7,4 @@ mongoose.connect(connectionString, { useNewUrlParser: true })
         console.log('mongoDB connected at: ', connectionString)
     })
 
-export default mongoose
+module.exports = mongoose

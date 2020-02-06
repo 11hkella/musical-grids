@@ -1,5 +1,5 @@
-import express from 'express'
-import * as MelodyApi from '../models/melody.js'
+const express = require('express')
+const MelodyApi = require('../models/melody.js')
 
 const MelodyRouter = express.Router()
 
@@ -28,6 +28,6 @@ MelodyRouter.get('/melody/:id', async (req, res) => {
     return res.json(melody)
 })
 
-export {
+module.exports = {
     MelodyRouter
 }
