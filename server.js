@@ -3,14 +3,14 @@ import express from 'express'
 const app = express()
 
 //import routers from controllers
-const { appRouter } = require('./controllers/melody.js')
+const { MelodyRouter } = require('./controllers/melody.js')
 
 // register middleware
 app.use(express.urlencoded({ extended: true }))
 app.use(express.static(`${__dirname}/client/build`))
 
 //add router for application use
-app.use('/api', appRouter)
+app.use('/api', MelodyRouter)
 
 //catch all to serve up built react app
 app.get('/*', (req, res) => {
