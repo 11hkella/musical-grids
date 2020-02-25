@@ -7,9 +7,8 @@ import Kick from './components/Kick'
 function App() {
   return (
     <div className="App">
-      <TransportComponent>
-        <Kick />
-      </TransportComponent>
+      <TransportComponent />
+      <Kick />
     </div>
   );
 }
