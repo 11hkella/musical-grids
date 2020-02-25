@@ -1,14 +1,12 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-import SynthGrid from './components/SynthGrid'
-import Transport from './components/Transport'
+import TransportComponent from './components/TransportComponent'
+
 
 function App() {
   return (
     <div className="App">
-      <SynthGrid />
-      <Transport />
+      <TransportComponent />
     </div>
   );
 }
