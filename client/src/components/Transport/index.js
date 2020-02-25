@@ -30,6 +30,7 @@ export default function (params) {
     const play = () => {
         Tone.Transport.start();
         setPlaying(true);
+        setLooping(true);
     };
 
     const stop = () => {
@@ -38,20 +39,11 @@ export default function (params) {
         setLooping(false);
     };
 
-    const handleLoop = () => {
-        setLooping(true);
-        setPlaying(true);
-        Tone.Transport.start();
-    };
-
     return (
         <div className="transport">
             <div className="display">{position}</div>
             <div className="controls">
-                <button className="play" onClick={play} disabled={playing}>
-                    play
-        </button>
-                <button className="loop" onClick={handleLoop} disabled={playing}>
+                <button className="loop" onClick={play} disabled={playing}>
                     play
         </button>
                 <button onClick={stop} disabled={!playing}>

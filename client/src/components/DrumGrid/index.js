@@ -5,7 +5,26 @@ import Tone from '../Tone'
 
 function DrumGrid() {
 
+    const [steps, setSteps] = useState(
+        [false, false, false, false,
+            false, false, false, false,
+            false, false, false, false,
+            false, false, false, false]
+    )
 
+
+
+    return (
+        <div className='drum-grid'>
+
+            {steps.map((step, index) => {
+                <button className=''>
+
+                </button>
+            })}
+
+        </div>
+    )
 
 
 }
