@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-export default class Kick extends Component {
+export default class Instrument extends Component {
 
     handleClick = () => {
         console.log("boooom!")

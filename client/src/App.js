@@ -1,14 +1,14 @@
 import React from 'react';
 import './App.css';
 import TransportComponent from './components/TransportComponent'
-import Kick from './components/Kick'
+import Instrument from './components/Instrument'
 
 
 function App() {
   return (
     <div className="App">
       <TransportComponent />
-      <Kick />
+      <Instrument />
     </div>
   );
 }
