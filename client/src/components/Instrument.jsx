@@ -19,34 +19,30 @@ export default class Instrument extends Component {
     }
 
 
-    startLoop = (time) => {
+    createLoop = () => {
+        Transport.clear(this.loopId)
+        const loop = (time) => {
+            console.log('start loop', time)
+            this.kick.trigger(time)
+            this.kick.trigger(time + 0.5)
+            this.kick.trigger(time + 1)
+            this.kick.trigger(time + 1.5)
+        }
+        this.loopId = Transport.schedule(loop, "0")
 
-        console.log('start loop', time)
-        this.kick.trigger(time)
-        this.kick.trigger(time + 0.5)
-        this.kick.trigger(time + 1)
-        this.kick.trigger(time + 1.5)
     }
 
-    run = () => {
+    handleClick = () => {
+        this.createLoop()
         Transport.start()
-    }
-
-
-    stop = () => {
-        Transport.stop()
     }
 
 
     render() {
         return <div className='kick-container'>
             <button
-                onClick={this.run}>
+                onClick={this.handleClick}>
                 Kick
-                </button>
-            <button
-                onClick={this.stop}>
-                Stop Loop
                 </button>
         </div>
     }
