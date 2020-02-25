@@ -11,7 +11,7 @@ export class Kick {
 
     setup() {
         this.osc = this.ctx.createOscillator();
-        this.gain = this.ctx.createGaine();
+        this.gain = this.ctx.createGain();
 
         this.osc.connect(this.gain);
         this.gain.connect(this.ctx.destination);
