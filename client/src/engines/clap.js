@@ -34,7 +34,7 @@ export class Clap {
     }
 
     trigger = (time) => {
-        if (this.volume == 0) { return };
+        if (this.volume === 0) { return };
         this.setup();
         this.envelope.gain.setValueAtTime(this.volume, time);
         this.envelope.gain.exponentialRampToValueAtTime(0.1, time + this.pulseWidth);

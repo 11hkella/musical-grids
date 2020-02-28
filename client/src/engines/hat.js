@@ -1,4 +1,4 @@
-export class HiHat {
+export class Hat {
     constructor(ctx) {
         this.ctx = ctx;
         this.ratios = [1, 1.3420, 1.2312, 1.6532, 1.9523, 2.1523];
@@ -23,7 +23,7 @@ export class HiHat {
     }
 
     trigger(time) {
-        if (this.volume == 0) { return };
+        if (this.volume === 0) { return };
         this.setup();
         this.ratios.forEach((ratio) => {
             var osc = this.ctx.createOscillator();

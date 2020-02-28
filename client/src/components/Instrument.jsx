@@ -28,6 +28,8 @@ export default class Instrument extends Component {
             case 'Snare':
                 this.sound = new Snare(this.ctx)
                 break
+            default:
+                this.sound = null
         }
 
         Transport.loop = true
@@ -58,13 +60,19 @@ export default class Instrument extends Component {
     }
 
     handleClick = () => {
-        console.log(this.loopId)
+        if (this.props.handleClick) {
+            this.props.handleClick(this.props.engine, this.state.steps)
+        }
     }
 
 
     render() {
+        const instrumentStyle = {
+            backgroundColor: this.props.selected ? '#2AC7DC' : '#CBCBCB',
+        }
         return <button
-            onClick={this.handleClick}>
+            onClick={this.handleClick}
+            style={instrumentStyle} >
             <p>{this.props.engine}</p>
         </button>
 
