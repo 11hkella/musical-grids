@@ -1,39 +1,50 @@
 import React, { Component } from 'react'
 import { Kick } from '../engines/kick'
-import { Transport } from 'tone'
+import { Transport, Time } from 'tone'
 
 export default class Instrument extends Component {
 
     constructor(props) {
         super(props)
         this.ctx = new AudioContext()
-        this.kick = new Kick(this.ctx)
-
-        console.log(Transport)
-
-        Transport.bpm.value = 120
-        Transport.schedule(this.startLoop, "0")
+        this.sound = new Kick(this.ctx)
+        this.state = {
+            steps: [false, false, false, false, false, false, false, false,
+                false, false, false, false, false, false, false, false]
+        }
 
         Transport.loop = true
         Transport.loopEnd = '1m'
     }
 
 
+    componentDidUpdate() {
+        if (this.props.steps && !areEqual(this.props.steps, this.state.steps)) {
+            this.setState(
+                { steps: [...this.props.steps] }
+            )
+            this.createLoop()
+        }
+    }
+
     createLoop = () => {
         Transport.clear(this.loopId)
         const loop = (time) => {
-            console.log('start loop', time)
-            this.kick.trigger(time)
-            this.kick.trigger(time + 0.5)
-            this.kick.trigger(time + 1)
-            this.kick.trigger(time + 1.5)
-        }
-        this.loopId = Transport.schedule(loop, "0")
+            this.state.steps.map((s, i) => {
+                if (s) {
+                    this.sound.trigger(time + i * Time('16n').toSeconds())
+                }
+            })
 
+            // this.kick.trigger(time)
+
+        }
+        console.log('loop created', loop)
+
+        this.loopId = Transport.schedule(loop, "0")
     }
 
     handleClick = () => {
-        this.createLoop()
         Transport.start()
     }
 
@@ -46,4 +57,11 @@ export default class Instrument extends Component {
                 </button>
         </div>
     }
+}
+
+function areEqual(a, b) {
+    a.forEach((item, index) => {
+        if (item !== b[index]) return false
+    })
+    return true
 }

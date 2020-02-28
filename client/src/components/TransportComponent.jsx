@@ -24,7 +24,7 @@ export default class TransportComponent extends Component {
         return (
             <div>
                 <h1>Drum Machine</h1>
-                <InstrumentRack>
+                <InstrumentRack steps={this.state.steps}>
                     <Instrument />
                 </InstrumentRack>
                 <Steps handleStepChange={this.handleStepChange} steps={this.state.steps} />

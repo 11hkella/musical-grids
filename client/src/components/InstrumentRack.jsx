@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-export class InstrumentRack extends Component {
+export default class InstrumentRack extends Component {
     constructor(props) {
         super(props)
     }
