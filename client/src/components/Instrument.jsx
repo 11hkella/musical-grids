@@ -63,12 +63,11 @@ export default class Instrument extends Component {
 
 
     render() {
-        return <div className='kick-container'>
-            <button
-                onClick={this.handleClick}>
-                Kick Loop Id
-                </button>
-        </div>
+        return <button
+            onClick={this.handleClick}>
+            <p>{this.props.engine}</p>
+        </button>
+
     }
 }
 
