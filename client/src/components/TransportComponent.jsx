@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Instrument from './Instrument'
 import Steps from './Steps'
+import InstrumentRack from './InstrumentRack'
 
 export default class TransportComponent extends Component {
     constructor(props) {
@@ -23,7 +24,9 @@ export default class TransportComponent extends Component {
         return (
             <div>
                 <h1>Drum Machine</h1>
-                <Instrument />
+                <InstrumentRack>
+                    <Instrument />
+                </InstrumentRack>
                 <Steps handleStepChange={this.handleStepChange} steps={this.state.steps} />
             </div>
         )

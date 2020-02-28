@@ -7,9 +7,18 @@ export class InstrumentRack extends Component {
 
 
     render() {
+
+        const childrenWithProps = React.Children.map(this.props.children, (child) => {
+            if (typeof child === 'object') {
+                return React.cloneElement(child, { steps: this.props.steps, selected: true })
+            }
+            return child;
+        })
+
+
         return (
             <div style={{ flex: 1, flexDirection: "row", justifyContent: 'space-between' }}>
-                {this.props.children}
+                {childrenWithProps}
             </div>
         )
     }
