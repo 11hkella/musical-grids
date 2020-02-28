@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
 import { Kick } from '../engines/kick'
+import { Clap } from '../engines/clap'
+import { Hat } from '../engines/hat'
+import { Snare } from '../engines/snare'
 import { Transport, Time } from 'tone'
 
 export default class Instrument extends Component {
@@ -7,10 +10,24 @@ export default class Instrument extends Component {
     constructor(props) {
         super(props)
         this.ctx = new AudioContext()
-        this.sound = new Kick(this.ctx)
         this.state = {
             steps: [false, false, false, false, false, false, false, false,
                 false, false, false, false, false, false, false, false]
+        }
+
+        switch (this.props.engine) {
+            case 'Kick':
+                this.sound = new Kick(this.ctx)
+                break
+            case 'Clap':
+                this.sound = new Clap(this.ctx)
+                break
+            case 'Hat':
+                this.sound = new Hat(this.ctx)
+                break
+            case 'Snare':
+                this.sound = new Snare(this.ctx)
+                break
         }
 
         Transport.loop = true
