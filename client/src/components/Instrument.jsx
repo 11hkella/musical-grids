@@ -41,8 +41,7 @@ export default class Instrument extends Component {
     }
 
     handleClick = () => {
-        console.log('transport start')
-        Transport.start()
+        console.log(this.loopId)
     }
 
 
@@ -50,7 +49,7 @@ export default class Instrument extends Component {
         return <div className='kick-container'>
             <button
                 onClick={this.handleClick}>
-                Kick
+                Kick Loop Id
                 </button>
         </div>
     }
