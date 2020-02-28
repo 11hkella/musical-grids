@@ -35,16 +35,13 @@ export default class Instrument extends Component {
                     this.sound.trigger(time + i * Time('16n').toSeconds())
                 }
             })
-
-            // this.kick.trigger(time)
-
         }
-        console.log('loop created', loop)
 
         this.loopId = Transport.schedule(loop, "0")
     }
 
     handleClick = () => {
+        console.log('transport start')
         Transport.start()
     }
 
@@ -59,9 +56,9 @@ export default class Instrument extends Component {
     }
 }
 
-function areEqual(a, b) {
-    a.forEach((item, index) => {
-        if (item !== b[index]) return false
-    })
+export const areEqual = (a, b) => {
+    for (let i = 0; i < a.length; i++) {
+        if (a[i] !== b[i]) return false
+    }
     return true
 }
