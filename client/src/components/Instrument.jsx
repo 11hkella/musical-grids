@@ -39,6 +39,7 @@ export default class Instrument extends Component {
 
     componentDidUpdate() {
         if (this.props.steps && !areEqual(this.props.steps, this.state.steps)) {
+
             this.setState(
                 { steps: [...this.props.steps] }
             )
@@ -61,7 +62,7 @@ export default class Instrument extends Component {
 
     handleClick = () => {
         if (this.props.handleClick) {
-            this.props.handleClick(this.props.engine, this.state.steps)
+            this.props.handleClick(this.props.engine, [...this.state.steps])
         }
     }
 
