@@ -7,7 +7,7 @@ export default class Steps extends Component {
             <div>
                 {this.props.steps.map((step, idx) => {
                     return (
-                        <Step on={step} onClick={this.props.handleStepChange} key={idx} id={idx} />
+                        <Step on={step} onClick={this.props.handleStepChange} key={idx} id={idx} selected={this.props.selected} />
                     )
                 })}
             </div>
