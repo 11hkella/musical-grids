@@ -4,6 +4,7 @@ import { Clap } from '../engines/clap'
 import { Hat } from '../engines/hat'
 import { Snare } from '../engines/snare'
 import { Transport, Time } from 'tone'
+import { params } from '../engines/parameters'
 
 export default class Instrument extends Component {
 
@@ -14,6 +15,8 @@ export default class Instrument extends Component {
             steps: [false, false, false, false, false, false, false, false,
                 false, false, false, false, false, false, false, false],
             volume: 1,
+            tone: 1,
+            decay: 1,
         }
 
         switch (this.props.engine) {
@@ -81,12 +84,6 @@ export default class Instrument extends Component {
             backgroundColor: this.props.selected ? '#2AC7DC' : '#CBCBCB',
         }
 
-        const params = {
-            vol: {
-                max: '1',
-                min: '0',
-            }
-        }
         return (
             <div>
                 <button
