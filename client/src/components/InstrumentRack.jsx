@@ -21,7 +21,7 @@ export default class InstrumentRack extends Component {
 
 
         return (
-            <div style={{ flex: 1, flexDirection: "row", justifyContent: 'space-between' }}>
+            <div style={{ display: 'flex', flex: 1, flexDirection: "row", justifyContent: 'space-between', width: '100%' }}>
                 {childrenWithProps}
             </div>
         )

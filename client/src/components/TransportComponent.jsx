@@ -54,7 +54,7 @@ export default class TransportComponent extends Component {
                     <Instrument key='Hat' engine='Hat' handleClick={this.selectInstrument} />
                     <Instrument key='Snare' engine='Snare' handleClick={this.selectInstrument} />
                 </InstrumentRack>
-                <Steps handleStepChange={this.handleStepChange} steps={this.state.steps} />
+                <Steps handleStepChange={this.handleStepChange} steps={this.state.steps} selected={this.state.selected ? true : false} />
             </div>
         )
     }

@@ -12,7 +12,8 @@ export default class Instrument extends Component {
         this.ctx = new AudioContext()
         this.state = {
             steps: [false, false, false, false, false, false, false, false,
-                false, false, false, false, false, false, false, false]
+                false, false, false, false, false, false, false, false],
+            volume: 1,
         }
 
         switch (this.props.engine) {
@@ -67,16 +68,51 @@ export default class Instrument extends Component {
     }
 
 
+    handleParams = (e) => {
+        const [name, value] = [e.target.name, e.target.value]
+
+        this.sound[name] = value
+        this.setState({ [`${name}`]: value })
+    }
+
+
     render() {
         const instrumentStyle = {
             backgroundColor: this.props.selected ? '#2AC7DC' : '#CBCBCB',
         }
-        return <button
-            onClick={this.handleClick}
-            style={instrumentStyle} >
-            <p>{this.props.engine}</p>
-        </button>
 
+        const params = {
+            vol: {
+                max: '1',
+                min: '0',
+            }
+        }
+        return (
+            <div>
+                <button
+                    onClick={this.handleClick}
+                    style={instrumentStyle} >
+                    <p>{this.props.engine}</p>
+                </button>
+
+                <div>
+                    <p>Volume</p>
+
+                    <input
+                        type='range'
+                        name='volume'
+                        min={params.vol.min}
+                        max={params.vol.max}
+                        step='0.1'
+                        value={this.state.volume}
+                        // onChange={(e) => { this.setState({ volume: e.target.value }) }}
+                        onChange={this.handleParams}
+                    />
+
+                </div>
+
+            </div>
+        )
     }
 }
 
