@@ -97,7 +97,6 @@ export default class Instrument extends Component {
 
                 <div>
                     <p>Volume</p>
-
                     <input
                         type='range'
                         name='volume'
@@ -105,7 +104,34 @@ export default class Instrument extends Component {
                         max={params.vol.max}
                         step='0.1'
                         value={this.state.volume}
-                        // onChange={(e) => { this.setState({ volume: e.target.value }) }}
+                        onChange={this.handleParams}
+                    />
+
+                </div>
+
+                <div>
+                    <p>Decay</p>
+                    <input
+                        type='range'
+                        name='decay'
+                        min={params.vol.min}
+                        max={params.vol.max}
+                        step='0.1'
+                        value={this.state.volume}
+                        onChange={this.handleParams}
+                    />
+
+                </div>
+
+                <div>
+                    <p>Tone</p>
+                    <input
+                        type='range'
+                        name='tone'
+                        min={params.vol.min}
+                        max={params.vol.max}
+                        step='0.1'
+                        value={this.state.volume}
                         onChange={this.handleParams}
                     />
 
