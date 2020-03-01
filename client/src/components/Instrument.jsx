@@ -14,9 +14,9 @@ export default class Instrument extends Component {
         this.state = {
             steps: [false, false, false, false, false, false, false, false,
                 false, false, false, false, false, false, false, false],
-            volume: 1,
-            tone: 1,
-            decay: 1,
+            volume: params[this.props.engine].vol.val,
+            tone: params[this.props.engine].tone.val,
+            decay: params[this.props.engine].decay.val,
         }
 
         switch (this.props.engine) {
@@ -97,8 +97,8 @@ export default class Instrument extends Component {
                     <input
                         type='range'
                         name='volume'
-                        min={params.vol.min}
-                        max={params.vol.max}
+                        min={params[this.props.engine].vol.min}
+                        max={params[this.props.engine].vol.max}
                         step='0.1'
                         value={this.state.volume}
                         onChange={this.handleParams}
@@ -111,10 +111,10 @@ export default class Instrument extends Component {
                     <input
                         type='range'
                         name='decay'
-                        min={params.vol.min}
-                        max={params.vol.max}
+                        min={params[this.props.engine].decay.min}
+                        max={params[this.props.engine].decay.max}
                         step='0.1'
-                        value={this.state.volume}
+                        value={this.state.decay}
                         onChange={this.handleParams}
                     />
 
@@ -125,10 +125,10 @@ export default class Instrument extends Component {
                     <input
                         type='range'
                         name='tone'
-                        min={params.vol.min}
-                        max={params.vol.max}
+                        min={params[this.props.engine].tone.min}
+                        max={params[this.props.engine].tone.max}
                         step='0.1'
-                        value={this.state.volume}
+                        value={this.state.tone}
                         onChange={this.handleParams}
                     />
 
