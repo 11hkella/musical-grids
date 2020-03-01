@@ -18,8 +18,12 @@ export default class Step extends Component {
             display: 'inline-block'
         }
 
+        const count = this.props.id % 4 + 1
+
         return (
-            <div style={style} onClick={this.handleClick} ></div>
+            <div style={style} onClick={this.handleClick} >
+                {count}
+            </div>
         )
     }
 }
