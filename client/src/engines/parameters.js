@@ -1,6 +1,6 @@
 const params = {
 
-    clap: {
+    Clap: {
         vol: {
             max: '1',
             min: '0',
@@ -18,7 +18,7 @@ const params = {
         }
     },
 
-    hat: {
+    Hat: {
         vol: {
             max: '1',
             min: '0',
@@ -36,7 +36,7 @@ const params = {
         }
     },
 
-    kick: {
+    Kick: {
         vol: {
             max: '1',
             min: '0',
@@ -54,7 +54,7 @@ const params = {
         }
     },
 
-    snare: {
+    Snare: {
         vol: {
             max: '1',
             min: '0',

@@ -19,7 +19,7 @@ export class Kick {
 
 
     trigger(time) {
-        if (this.volume == 0) { return }
+        if (this.volume === 0) { return }
         this.setup()
 
         this.osc.frequency.setValueAtTime(this.tone, time + 0.001)
