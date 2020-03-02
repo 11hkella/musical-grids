@@ -26,7 +26,7 @@ export default class TransportComponent extends Component {
     }
 
     setTempo = (bpm) => {
-        Transport.bpm = bpm
+        Transport.bpm.value = bpm
     }
 
     play = () => {

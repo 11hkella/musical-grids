@@ -18,15 +18,22 @@ export default class BpmInput extends Component {
     }
 
 
-    handleSubmit = () => {
+    handleSubmit = (e) => {
+        e.preventDefault()
         this.props.setTempo(this.state.bpm)
     }
 
 
     render() {
+        const style = {
+            color: this.state.isSet ? '#999' : 'inherit'
+        }
+
+
         return (
             <form>
                 <input
+                    style={style}
                     type='number'
                     name='bpm'
                     id='bpm'
