@@ -13,7 +13,8 @@ export default class TransportComponent extends Component {
         this.state = {
             steps: [false, false, false, false, false, false, false, false,
                 false, false, false, false, false, false, false, false],
-            selected: null
+            selected: null,
+            bpm: 120
         }
     }
 
@@ -27,6 +28,7 @@ export default class TransportComponent extends Component {
 
     setTempo = (bpm) => {
         Transport.bpm.value = bpm
+        this.setState({ bpm })
     }
 
     play = () => {
@@ -54,7 +56,7 @@ export default class TransportComponent extends Component {
             <div>
                 <h1>Drum Machine</h1>
                 <PlayPause play={this.play} pause={this.pause} />
-                <BpmInput setTempo={this.setTempo} />
+                <BpmInput setTempo={this.setTempo} bpm={this.state.bpm} />
                 <InstrumentRack steps={this.state.steps} selectedInstrument={this.state.selected} >
                     <Instrument key='Kick' engine='Kick' handleClick={this.selectInstrument} />
                     <Instrument key='Clap' engine='Clap' handleClick={this.selectInstrument} />

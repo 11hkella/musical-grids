@@ -10,41 +10,39 @@ export default class BpmInput extends Component {
         }
     }
 
+    componentDidMount() {
+        this.setState({ bpm: this.props.bpm })
+    }
 
     handleChange = (e) => {
         const { name, value } = e.currentTarget
-
+        console.log(name, ' : ', value)
         this.setState({ [name]: value, isSet: false })
     }
 
 
-    handleSubmit = (e) => {
-        e.preventDefault()
-        this.props.setTempo(this.state.bpm)
+    handleClick = (e) => {
+        this.setState({ isSet: true })
+        this.props.setTempo(Number(this.state.bpm))
     }
 
 
     render() {
-        const style = {
-            color: this.state.isSet ? '#999' : 'inherit'
-        }
-
-
         return (
             <form>
                 <input
-                    style={style}
                     type='number'
                     name='bpm'
                     id='bpm'
                     min='60'
                     max='280'
-                    value={this.state.bpm}
+                    placeholder={this.state.bpm}
                     onChange={this.handleChange} />
                 <input
-                    type='submit'
+                    type='button'
                     value='Set Tempo'
-                    onSubmit={this.handleSubmit} />
+                    disabled={this.state.isSet ? true : false}
+                    onClick={this.handleClick} />
             </form>
 
 

@@ -43,7 +43,6 @@ export default class Instrument extends Component {
 
 
     componentDidMount() {
-        console.log(this.props.engine)
         this.setState({
             volume: params[this.props.engine].vol.val,
             tone: params[this.props.engine].tone.val,
