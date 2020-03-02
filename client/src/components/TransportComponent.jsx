@@ -23,6 +23,10 @@ export default class TransportComponent extends Component {
         })
     }
 
+    setTempo = (bpm) => {
+        Transport.bpm = bpm
+    }
+
     play = () => {
         console.log("transport start")
         Transport.start()
