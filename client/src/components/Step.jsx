@@ -18,7 +18,12 @@ export default class Step extends Component {
             display: 'inline-block'
         }
 
-        const count = this.props.id % 4 + 1
+        let count = this.props.id % 4 + 1
+
+        if (count === 1) {
+            count = Math.ceil((this.props.id + 1) / 4)
+            style.color = 'red'
+        }
 
         return (
             <button style={style} onClick={this.handleClick} disabled={!this.props.selected} >
