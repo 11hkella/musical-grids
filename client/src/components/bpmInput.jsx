@@ -5,7 +5,8 @@ export default class BpmInput extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            bpm: 120
+            bpm: 120,
+            isSet: true
         }
     }
 
@@ -13,7 +14,7 @@ export default class BpmInput extends Component {
     handleChange = (e) => {
         const { name, value } = e.currentTarget
 
-        this.setState({ [name]: value })
+        this.setState({ [name]: value, isSet: false })
     }
 
 
@@ -29,6 +30,8 @@ export default class BpmInput extends Component {
                     type='number'
                     name='bpm'
                     id='bpm'
+                    min='60'
+                    max='280'
                     value={this.state.bpm}
                     onChange={this.handleChange} />
                 <input

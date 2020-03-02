@@ -3,7 +3,9 @@ import Instrument from './Instrument'
 import Steps from './Steps'
 import InstrumentRack from './InstrumentRack'
 import PlayPause from './PlayPause'
+import BpmInput from './bpmInput'
 import { Transport } from 'tone'
+
 
 export default class TransportComponent extends Component {
     constructor(props) {
@@ -52,6 +54,7 @@ export default class TransportComponent extends Component {
             <div>
                 <h1>Drum Machine</h1>
                 <PlayPause play={this.play} pause={this.pause} />
+                <BpmInput setTempo={this.setTempo} />
                 <InstrumentRack steps={this.state.steps} selectedInstrument={this.state.selected} >
                     <Instrument key='Kick' engine='Kick' handleClick={this.selectInstrument} />
                     <Instrument key='Clap' engine='Clap' handleClick={this.selectInstrument} />
