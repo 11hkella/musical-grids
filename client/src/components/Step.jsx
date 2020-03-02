@@ -10,16 +10,20 @@ export default class Step extends Component {
 
     render() {
         const style = {
-            width: '3em',
-            height: '5em',
+            width: '4.2em',
+            height: '7em',
             backgroundColor: this.props.on ? '#2AC7DC' : '#CBCBCB',
             borderRadius: '0.8em',
             margin: 5,
             display: 'inline-block'
         }
 
+        const count = this.props.id % 4 + 1
+
         return (
-            <div style={style} onClick={this.handleClick} ></div>
+            <button style={style} onClick={this.handleClick} disabled={!this.props.selected} >
+                {count}
+            </button>
         )
     }
 }
