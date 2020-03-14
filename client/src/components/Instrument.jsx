@@ -71,7 +71,7 @@ export default class Instrument extends Component {
             })
         }
 
-        this.loopId = Transport.schedule(loop, "0")
+        this.loopId = Transport.schedule(loop, "0:0:0")
     }
 
     handleClick = () => {
