@@ -32,7 +32,6 @@ export default class TransportComponent extends Component {
     }
 
     play = () => {
-        console.log("transport start")
         Transport.start()
     }
 
