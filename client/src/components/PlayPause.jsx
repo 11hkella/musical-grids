@@ -1,4 +1,7 @@
 import React, { Component } from 'react'
+import Button from '@material-ui/core/Button'
+import PlayIcon from '../images/play_arrow-24px.svg'
+import PauseIcon from '../images/pause_arrow-24px.svg'
 
 export default class PlayPause extends Component {
     constructor(props) {
@@ -23,9 +26,9 @@ export default class PlayPause extends Component {
     render() {
         return (
             <div>
-                <button onClick={this.handleClick}>
+                <Button variant='contained' color='primary' onClick={this.handleClick}>
                     {this.state.playing ? 'Pause' : 'Play'}
-                </button>
+                </Button>
             </div>
         )
     }
