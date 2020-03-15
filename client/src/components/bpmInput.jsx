@@ -18,7 +18,6 @@ export default class BpmInput extends Component {
 
     handleChange = (e) => {
         const { name, value } = e.currentTarget
-        console.log(name, ' : ', value)
         this.setState({ [name]: value, isSet: false })
     }
 
