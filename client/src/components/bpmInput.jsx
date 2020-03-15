@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import TextFeild from '@material-ui/core/TextField'
+import Button from '@material-ui/core/Button'
 
 export default class BpmInput extends Component {
 
@@ -16,7 +18,6 @@ export default class BpmInput extends Component {
 
     handleChange = (e) => {
         const { name, value } = e.currentTarget
-        console.log(name, ' : ', value)
         this.setState({ [name]: value, isSet: false })
     }
 
@@ -30,19 +31,21 @@ export default class BpmInput extends Component {
     render() {
         return (
             <form>
-                <input
+                <TextFeild
                     type='number'
                     name='bpm'
-                    id='bpm'
+                    label='BPM'
+                    id="filled-basic"
                     min='60'
                     max='280'
-                    placeholder={this.state.bpm}
+                    placeholder={this.state.bpm.toString()}
                     onChange={this.handleChange} />
-                <input
-                    type='button'
-                    value='Set Tempo'
+                <Button
+                    variant='outlined'
                     disabled={this.state.isSet ? true : false}
-                    onClick={this.handleClick} />
+                    onClick={this.handleClick}>
+                    Set Tempo
+                </Button>
             </form>
 
 

@@ -5,6 +5,9 @@ import { Hat } from '../engines/hat'
 import { Snare } from '../engines/snare'
 import { Transport, Time } from 'tone'
 import { params } from '../engines/parameters'
+import Button from '@material-ui/core/Button'
+import Slider from '@material-ui/core/Slider'
+import Typography from '@material-ui/core/Typography'
 
 
 export default class Instrument extends Component {
@@ -15,9 +18,9 @@ export default class Instrument extends Component {
         this.state = {
             steps: [false, false, false, false, false, false, false, false,
                 false, false, false, false, false, false, false, false],
-            volume: 0,
-            tone: 0,
-            decay: 0,
+            volume: params[this.props.engine].vol.val,
+            tone: params[this.props.engine].tone.val,
+            decay: params[this.props.engine].decay.val,
         }
 
         switch (this.props.engine) {
@@ -39,15 +42,6 @@ export default class Instrument extends Component {
 
         Transport.loop = true
         Transport.loopEnd = '1m'
-    }
-
-
-    componentDidMount() {
-        this.setState({
-            volume: params[this.props.engine].vol.val,
-            tone: params[this.props.engine].tone.val,
-            decay: params[this.props.engine].decay.val,
-        })
     }
 
 
@@ -81,11 +75,9 @@ export default class Instrument extends Component {
     }
 
 
-    handleParams = (e) => {
-        const [name, value] = [e.target.name, Number(e.target.value)]
-
-        this.sound[name] = value
-        this.setState({ [`${name}`]: value })
+    handleParams = name => (e, newValue) => {
+        this.sound[name] = newValue
+        this.setState({ [name]: newValue })
     }
 
 
@@ -96,50 +88,46 @@ export default class Instrument extends Component {
 
         return (
             <div>
-                <button
+                <Button
+                    variant='contained'
                     onClick={this.handleClick}
                     style={instrumentStyle} >
                     <p>{this.props.engine}</p>
-                </button>
+                </Button>
 
                 <div>
-                    <p>Volume</p>
-                    <input
-                        type='range'
-                        name='volume'
+                    <Typography>Volume</Typography>
+                    <Slider
+                        aria-labelledby="continuous-slider"
                         min={params[this.props.engine].vol.min}
                         max={params[this.props.engine].vol.max}
-                        step='0.1'
+                        step={0.01}
                         value={this.state.volume}
-                        onChange={this.handleParams}
+                        onChange={this.handleParams('volume')}
                     />
-
                 </div>
 
                 <div>
-                    <p>Decay</p>
-                    <input
-                        type='range'
-                        name='decay'
+                    <Typography>Decay</Typography>
+                    <Slider
+                        aria-labelledby="continuous-slider"
                         min={params[this.props.engine].decay.min}
                         max={params[this.props.engine].decay.max}
-                        step='0.01'
+                        step={0.01}
                         value={this.state.decay}
-                        onChange={this.handleParams}
+                        onChange={this.handleParams('decay')}
                     />
 
                 </div>
 
                 <div>
-                    <p>Tone</p>
-                    <input
-                        type='range'
-                        name='tone'
+                    <Typography>Tone</Typography>
+                    <Slider
                         min={params[this.props.engine].tone.min}
                         max={params[this.props.engine].tone.max}
-                        step='0.1'
+                        step={0.1}
                         value={this.state.tone}
-                        onChange={this.handleParams}
+                        onChange={this.handleParams('tone')}
                     />
 
                 </div>

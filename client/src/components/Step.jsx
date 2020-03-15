@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Button from '@material-ui/core/Button'
 
 export default class Step extends Component {
 
@@ -15,20 +16,29 @@ export default class Step extends Component {
             backgroundColor: this.props.on ? '#2AC7DC' : '#CBCBCB',
             borderRadius: '0.8em',
             margin: 5,
-            display: 'inline-block'
+            display: 'inline-block',
+            fontWeight: 200
         }
 
-        let count = this.props.id % 4 + 1
+        let count = this.props.id % 4
+        let symbol = ''
 
-        if (count === 1) {
-            count = Math.ceil((this.props.id + 1) / 4)
-            style.color = 'red'
+        if (count === 0) {
+            style.width = '4.8em'
+            style.height = '7.8em'
+            symbol = Math.floor(this.props.id / 4) + 1
+        } else if (count === 2) {
+            symbol = '&'
         }
 
         return (
-            <button style={style} onClick={this.handleClick} disabled={!this.props.selected} >
-                {count}
-            </button>
+            <Button
+                style={style}
+                onClick={this.handleClick}
+                disabled={!this.props.selected}
+                variant='contained' >
+                {symbol}
+            </Button>
         )
     }
 }
