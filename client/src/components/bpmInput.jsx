@@ -39,7 +39,7 @@ export default class BpmInput extends Component {
                     id="filled-basic"
                     min='60'
                     max='280'
-                    placeholder={this.state.bpm}
+                    placeholder={this.state.bpm.toString()}
                     onChange={this.handleChange} />
                 <Button
                     variant='outlined'
